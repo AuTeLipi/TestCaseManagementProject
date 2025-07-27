@@ -1,5 +1,3 @@
-# TestCaseManagementProject
-
 # ✅ Test Case Management System (Java Console App)
 
 A lightweight, beginner-friendly Java console application to manage test cases efficiently — built from the perspective of an automation tester learning and applying core Java concepts.
