@@ -12,6 +12,7 @@ This project simulates a basic Test Case Management System in Java, allowing use
 - View all test cases
 - Execute (mark as Passed/Failed)
 - Delete test cases
+- Restore deleted test cases
 
 It’s a great starting point for QA engineers and Java learners who want to build logic-driven tools from scratch.
 
