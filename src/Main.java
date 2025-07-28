@@ -2,10 +2,14 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        TestCaseManager tcm = new TestCaseManager();
-        Scanner scanner = new Scanner(System.in);
 
+        // Creating an instance of the TestCaseManager
+        TestCaseManager tcm = new TestCaseManager();
+        Scanner scanner = new Scanner(System.in); // Scanner for user input
+
+        // Infinite loop to display menu and handle user operations
         while (true) {
+            // Display the main menu
             System.out.println("\n== Test Case Management System ==");
             System.out.println("1. Add TestCase");
             System.out.println("2. View All TestCases");
@@ -16,6 +20,7 @@ public class Main {
 
             int choice;
 
+            // Read and validate user input for menu choice
             try {
                 choice = Integer.parseInt(scanner.nextLine());
             } catch (NumberFormatException e) {
@@ -26,6 +31,7 @@ public class Main {
             switch (choice) {
 
                 case 1:
+                    // Add a new test case
                     System.out.println("Enter Title: ");
                     String title = scanner.nextLine();
                     System.out.println("Enter Description: ");
@@ -34,10 +40,12 @@ public class Main {
                     break;
 
                 case 2:
+                    // View all test cases
                     tcm.viewAllTestCases();
                     break;
 
                 case 3:
+                    // Execute a specific test case by ID
                     try {
                         System.out.println("Enter Test Case ID to execute: ");
                         int exeid = Integer.parseInt(scanner.nextLine());
@@ -47,9 +55,11 @@ public class Main {
                             break;
                         }
 
+                        // Get the execution result from user
                         System.out.println("Enter execution result (Passed/Failed): ");
                         String exeresult = scanner.nextLine();
 
+                        // Validates result and update test case
                         if (exeresult.equalsIgnoreCase("Passed") || exeresult.equalsIgnoreCase("Failed")) {
                             if (tcm.executeTestCase(exeid, exeresult)) {
                                 System.out.println("Test case executed and status updated.");
@@ -68,15 +78,18 @@ public class Main {
                     break;
 
                 case 4:
+                    // Delete a test case by ID
                     try {
                         System.out.print("Enter Test Case ID to delete: ");
                         int deleteId = Integer.parseInt(scanner.nextLine());
 
+                        // Validate ID input
                         if (deleteId <= 0) {
                             System.out.println("Invalid ID. Must be a positive number.");
                             break;
                         }
 
+                        // Deleting the test case
                         if (tcm.deleteTestCase(deleteId)) {
                             System.out.println("Test case deleted.");
                         } else {
@@ -90,11 +103,13 @@ public class Main {
                     break;
 
                 case 5:
+                    // Exit the application
                     System.out.println("Exiting... Goodbye!");
                     scanner.close();
                     return;
 
                 default:
+                    // Handle invalid menu option
                     System.out.println("Invalid option. Try again.");
             }
         }

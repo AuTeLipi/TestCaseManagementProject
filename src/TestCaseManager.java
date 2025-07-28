@@ -3,11 +3,9 @@ import java.util.List;
 
 public class TestCaseManager {
 
-    /* Manages list of Testcases
-
-    4 Functionalities:
-    - Add, View, Execute and Delete TestCaseS
-
+    /* Manages List of Testcases:
+      Basically, does 4 Functionalities:
+      - Add, View, Execute and Delete TestCases
      */
 
     private List <TestCase> testCases = new ArrayList<>();
