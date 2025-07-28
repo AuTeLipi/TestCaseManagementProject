@@ -15,7 +15,8 @@ public class Main {
             System.out.println("2. View All TestCases");
             System.out.println("3. Execute TestCase");
             System.out.println("4. Delete TestCase");
-            System.out.println("5. Exit");
+            System.out.println("5. Restore Deleted TestCase");
+            System.out.println("6. Exit");
             System.out.print("Choose your option: ");
 
             int choice;
@@ -24,7 +25,7 @@ public class Main {
             try {
                 choice = Integer.parseInt(scanner.nextLine());
             } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Please enter a valid number (1–5).");
+                System.out.println("Invalid input, Please enter a valid number (1–6).");
                 continue;
             }
 
@@ -47,33 +48,27 @@ public class Main {
                 case 3:
                     // Execute a specific test case by ID
                     try {
-                        System.out.println("Enter Test Case ID to execute: ");
+                        System.out.print("Enter Test Case ID to execute: ");
                         int exeid = Integer.parseInt(scanner.nextLine());
 
-                        if (exeid <= 0) {
-                            System.out.println("Invalid ID input, must be a positive number.");
+                        // Short validation: check if the ID exists
+                        if (!tcm.executeTestCase(exeid, "")) {
+                            System.out.println("Test case not found.");
                             break;
                         }
 
-                        // Get the execution result from user
-                        System.out.println("Enter execution result (Passed/Failed): ");
+                        System.out.print("Enter execution result (Passed/Failed): ");
                         String exeresult = scanner.nextLine();
 
-                        // Validates result and update test case
                         if (exeresult.equalsIgnoreCase("Passed") || exeresult.equalsIgnoreCase("Failed")) {
-                            if (tcm.executeTestCase(exeid, exeresult)) {
-                                System.out.println("Test case executed and status updated.");
-                            } else {
-                                System.out.println("Test case not found.");
-                            }
+                            tcm.executeTestCase(exeid, exeresult);
+                            System.out.println("Test case executed and status updated.");
                         } else {
-                            System.out.println("Invalid result. Use 'Passed' or 'Failed'.");
+                            System.out.println("Invalid result, Use 'Passed' or 'Failed'.");
                         }
 
                     } catch (NumberFormatException e) {
-                        System.out.println("Invalid input. Please enter a valid number for ID.");
-                    } catch (Exception e) {
-                        System.out.println("An error occurred while executing the test case: " + e.getMessage());
+                        System.out.println("Invalid input, Enter a number.");
                     }
                     break;
 
@@ -85,7 +80,7 @@ public class Main {
 
                         // Validate ID input
                         if (deleteId <= 0) {
-                            System.out.println("Invalid ID. Must be a positive number.");
+                            System.out.println("Invalid ID, must be a positive number.");
                             break;
                         }
 
@@ -96,13 +91,36 @@ public class Main {
                             System.out.println("Test case not found.");
                         }
                     } catch (NumberFormatException e) {
-                        System.out.println("Invalid input. Please enter a valid number for ID." );
+                        System.out.println("Invalid input, Please enter a valid number for ID." );
                     } catch (Exception e) {
                         System.out.println("An error occurred while deleting the test case: " + e.getMessage());
                     }
                     break;
 
                 case 5:
+                    // Shows Deleted Testcase History and We can choose which Testcase to restore
+                    tcm.showDeletedTestCases();
+                    System.out.print("Enter ID of the test case to restore individual Testcase, -1 to restore all, or 0 to cancel: ");
+                    try {
+                        int restoreId = Integer.parseInt(scanner.nextLine());
+
+                        if (restoreId == 0) {
+                            System.out.println("Restore cancelled.");
+                        } else if (restoreId == -1) {
+                            tcm.restoreDeletedTestCases();
+                        } else if (tcm.restoreTestCaseById(restoreId)) {
+                            System.out.println("Test case restored.");
+                        } else {
+                            System.out.println("Test case not found in deleted history.");
+                        }
+
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid input, must be a number.");
+                    }
+                    break;
+
+
+                case 6:
                     // Exit the application
                     System.out.println("Exiting... Goodbye!");
                     scanner.close();

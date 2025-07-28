@@ -52,7 +52,7 @@ public class TestCase {
 
     @Override
     public String toString() {
-        return "TestCase [ID=" + id + ", Title=" + title + ", Description=" + description + ", Status=" + status + "]";
+        return "TestCase [ID = " + id + ", Title = " + title + ", Description = " + description + ", Status = " + status + "]";
     }
 
 }
