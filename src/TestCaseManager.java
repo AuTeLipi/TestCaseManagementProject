@@ -9,6 +9,7 @@ public class TestCaseManager {
      */
 
     private List <TestCase> testCases = new ArrayList<>();
+    private List<TestCase> deletedTestCases = new ArrayList<>();
     private int nextid = 1;
 
     // Add TestCase using title, description as inputs
@@ -38,10 +39,11 @@ public class TestCaseManager {
     // Execute TestCase using id and Status as inputs
 
     public boolean executeTestCase(int id, String result) {
-
-        for (TestCase testcase : testCases) {
-            if (testcase.getId() == id) {
-                testcase.setStatus(result);
+        for (TestCase testCase : testCases) {
+            if (testCase.getId() == id) {
+                if (!result.isEmpty()) {
+                    testCase.setStatus(result);
+                }
                 return true;
             }
         }
@@ -51,11 +53,50 @@ public class TestCaseManager {
     // Delete TestCase using id as input
 
     public boolean deleteTestCase(int id) {
-
-        return testCases.removeIf(testCase -> testCase.getId() == id);
-
+        for (TestCase testCase : testCases) {
+            if (testCase.getId() == id) {
+                deletedTestCases.add(testCase);
+                testCases.remove(testCase);
+                return true;
+            }
+        }
+        return false;
     }
 
+    // Show Deleted TestCases
 
+    public void showDeletedTestCases() {
+        if (deletedTestCases.isEmpty()) {
+            System.out.println("No deleted test cases available.");
+        } else {
+            System.out.println("\n🗂️ Deleted Test Case History:");
+            for (TestCase testCase : deletedTestCases) {
+                System.out.println(testCase);
+            }
+        }
+    }
+
+    // Restore choosen deleted Testcase
+
+    public boolean restoreTestCaseById(int id) {
+        for (TestCase testCase : deletedTestCases) {
+            if (testCase.getId() == id) {
+                testCases.add(testCase);
+                deletedTestCases.remove(testCase);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void restoreDeletedTestCases() {
+        if (deletedTestCases.isEmpty()) {
+            System.out.println("No deleted test cases to restore.");
+        } else {
+            testCases.addAll(deletedTestCases);
+            deletedTestCases.clear();
+            System.out.println("All deleted test cases restored.");
+        }
+    }
 
 }
