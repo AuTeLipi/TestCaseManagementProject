@@ -60,10 +60,8 @@ As a QA/automation tester, this tool was built to:
 
 ---
 
-## 📈 Future Ideas
-- Save/load test cases from a file
-- Add search/filter functionality
-- Web UI using Spring Boot or JavaFX
-- Link with automation frameworks like Selenium
+## 🎥 Video Demo
+
+https://github.com/user-attachments/assets/57cda2eb-0448-4aab-bab7-53c85f1c6c4f
 
 ---
