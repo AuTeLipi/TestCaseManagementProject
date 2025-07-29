@@ -64,4 +64,6 @@ As a QA/automation tester, this tool was built to:
    ```bash
    java Main
 
+---
+
 
