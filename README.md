@@ -4,6 +4,12 @@ A lightweight, beginner-friendly Java console application to manage test cases e
 
 ---
 
+## 🎥 Video Demo
+
+https://github.com/user-attachments/assets/57cda2eb-0448-4aab-bab7-53c85f1c6c4f
+
+---
+
 ## 💡 About the Project
 
 This project simulates a basic Test Case Management System in Java, allowing users to:
@@ -58,10 +64,4 @@ As a QA/automation tester, this tool was built to:
    ```bash
    java Main
 
----
 
-## 🎥 Video Demo
-
-https://github.com/user-attachments/assets/57cda2eb-0448-4aab-bab7-53c85f1c6c4f
-
----
