@@ -6,7 +6,7 @@
 
 </div>
 
-A lightweight, beginner-friendly Java console application to manage test cases efficiently — built from the perspective of an automation tester learning and applying core Java concepts.
+This is a beginner-friendly Java console application that simulates a Test Case Management System, designed for QA engineers and Java learners. It allows users to add, view, execute (mark as passed/failed), delete, and restore test cases through a command-line interface, demonstrating core Java concepts like OOP and exception handling. Built from an automation tester's perspective, it provides hands-on practice with Java fundamentals while simulating real-world testing workflows without requiring external tools.
 
 ---
 
