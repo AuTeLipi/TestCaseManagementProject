@@ -2,8 +2,6 @@
 
 # ✅ Test Case Management System (Java Console App)
 
-<img width="1950" height="590" alt="Image" src="https://github.com/user-attachments/assets/d84fb143-5173-4d0a-95a7-fc0288aa050a" />
-
 </div>
 
 This is a beginner-friendly Java console application that simulates a Test Case Management System, designed for QA engineers and Java learners. It allows users to add, view, execute (mark as passed/failed), delete, and restore test cases through a command-line interface, demonstrating core Java concepts like OOP and exception handling. Built from an automation tester's perspective, it provides hands-on practice with Java fundamentals while simulating real-world testing workflows without requiring external tools.
