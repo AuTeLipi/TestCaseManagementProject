@@ -1,4 +1,10 @@
+<div align="center">
+
 # ✅ Test Case Management System (Java Console App)
+
+<img width="1950" height="590" alt="Image" src="https://github.com/user-attachments/assets/d84fb143-5173-4d0a-95a7-fc0288aa050a" />
+
+</div>
 
 A lightweight, beginner-friendly Java console application to manage test cases efficiently — built from the perspective of an automation tester learning and applying core Java concepts.
 
