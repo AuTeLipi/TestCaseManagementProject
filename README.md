@@ -2,7 +2,7 @@
 
 # ✅ Test Case Management System (Java Console App)
 
-<img width="985" height="930" alt="Image" src="https://github.com/user-attachments/assets/a1a6c8cf-c8f8-4c22-8401-60cfea5401af" />
+<img width="893" height="674" alt="Image" src="https://github.com/user-attachments/assets/61985143-ac58-46c4-9bac-f945b50391f8" />
 
 </div>
 
